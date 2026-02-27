@@ -1,6 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
+from pydantic import BaseModel
 
 app = FastAPI()
+router = APIRouter()
 
 @app.get("/users")
 def get_users():
@@ -10,4 +12,11 @@ def get_users():
 def create_user(user: dict):
     return {"message": "User created", "user": user}
 
-@app.put("/users/{user_id}")
+class CreatePayment(BaseModel):
+    amount: int
+    currency: str
+    customer_id: str
+
+@router.post("/payments")
+def create_payment(req: CreatePayment):
+    return {"status": "ok"}
