@@ -11,5 +11,3 @@ def create_user(user: dict):
     return {"message": "User created", "user": user}
 
 @app.put("/users/{user_id}")
-def update_user(user_id: int, user: dict):
-    return {"message": "User updated"}
