@@ -4,8 +4,8 @@ print("only takes latest commit")
 
 print("semantic AST added")
 
-def add(a, b):
-    return a + b
+def add(a, b,c):
+    return a + b + c
 
 class Engine:
     def run(self):
